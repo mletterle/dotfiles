@@ -1,4 +1,5 @@
 set nocompatible
+set packpath+=~/.vim
 filetype off
 
 syntax on
