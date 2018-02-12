@@ -14,6 +14,7 @@ if exists("g:gui_oni")
     set laststatus=0
 else
     let g:airline_powerline_fonts = 1
+    let g:airline_theme='one'
     let g:Powerline_symbols='unicode'
     set laststatus=2
 endif
@@ -23,3 +24,6 @@ set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
 
 let g:go_fmt_experimental=1
 
+set termguicolors
+set background=dark
+colorscheme one 
