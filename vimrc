@@ -4,6 +4,7 @@ filetype off
 
 syntax on
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 
 if filereadable("$HOME/.vimrc.local")
 	source $HOME/.vimrc.local
