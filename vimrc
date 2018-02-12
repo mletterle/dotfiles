@@ -20,3 +20,6 @@ endif
 
 
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab smarttab
+
+let g:go_fmt_experimental=1
+

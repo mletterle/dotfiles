@@ -7,6 +7,7 @@
         "https://github.com/OrangeT/vim-csharp",
         "https://github.com/tpope/vim-fugitive.git",
         "https://github.com/tpope/vim-git.git",
-        "https://github.com/PProvost/vim-ps1.git"
+        "https://github.com/PProvost/vim-ps1.git",
+        "https://github.com/fatih/vim-go.git"
     ]
 }
