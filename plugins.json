@@ -9,6 +9,7 @@
         "https://github.com/tpope/vim-git.git",
         "https://github.com/PProvost/vim-ps1.git",
         "https://github.com/fatih/vim-go.git",
-        "https://github.com/rakr/vim-one"
+        "https://github.com/rakr/vim-one",
+        "https://github.com/jiangmiao/auto-pairs"
     ]
 }
