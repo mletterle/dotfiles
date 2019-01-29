@@ -12,6 +12,8 @@
         "https://github.com/rakr/vim-one",
         "https://github.com/jiangmiao/auto-pairs",
         "https://github.com/tomtom/tcomment_vim",
-        "https://github.com/raydudu/vim-ilasm"
+        "https://github.com/raydudu/vim-ilasm",
+        "https://github.com/Snape3058/vim-smali",
+        "https://github.com/dhruvasagar/vim-table-mode"
     ]
 }
