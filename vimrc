@@ -1,3 +1,4 @@
+set nomodeline
 set nocompatible
 set packpath+=~/.vim
 filetype off
