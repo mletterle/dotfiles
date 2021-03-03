@@ -29,8 +29,13 @@ let g:go_fmt_experimental=1
 set termguicolors
 set background=dark
 colorscheme one 
+hi Normal guibg=NONE ctermbg=NONE
 
+tnoremap <C-\><C-\> <C-\><C-N>
 tnoremap <C-w>h <C-\><C-n><C-w>h
 tnoremap <C-w>j <C-\><C-n><C-w>j
 tnoremap <C-w>k <C-\><C-n><C-w>k
 tnoremap <C-w>l <C-\><C-n><C-w>l
+
+
+noremap cb i✔<ESC>
