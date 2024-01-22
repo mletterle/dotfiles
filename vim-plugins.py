@@ -12,7 +12,7 @@ os.chdir(plugin_dir)
 
 if initialize:
     for repo in plugin_config["plugins"]:
-        call(f"git clone {repo}", shell=True)
+        call(f"git clone --recurse-submodules {repo}", shell=True)
 else:
     for pdir in os.scandir(plugin_dir):
         if(pdir.is_dir()):
