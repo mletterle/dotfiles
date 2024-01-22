@@ -14,6 +14,8 @@
         "https://github.com/tomtom/tcomment_vim",
         "https://github.com/raydudu/vim-ilasm",
         "https://github.com/Snape3058/vim-smali",
-        "https://github.com/dhruvasagar/vim-table-mode"
+        "https://github.com/dhruvasagar/vim-table-mode",
+        "https://github.com/cdelledonne/vim-cmake",
+        "https://github.com/markonm/traces.vim"
     ]
 }
