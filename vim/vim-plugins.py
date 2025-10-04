@@ -1,3 +1,5 @@
+#!/bin/python3
+
 import os
 import json
 from subprocess import call
@@ -19,5 +21,5 @@ else:
             os.chdir(pdir.path)
             call(f"git pull", shell=True)
 
- 
+
 
