@@ -1,0 +1,1 @@
+eval $(dircolors $ZSHRC_DIR/dir_colors)

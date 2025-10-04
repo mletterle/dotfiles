@@ -1,0 +1,34 @@
+_mdl_new_line() {
+  print ""
+}
+
+_mdl_git_remote() {
+  _MDL_GIT_UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2> /dev/null)
+  if [ ! $? -eq 0 ]; then
+    _MDL_GIT_REMOTE_PART=
+  else
+    _MDL_GIT_REMOTE_PART="$(echo -n ${_MDL_GIT_UPSTREAM} | awk -F'/' '{print $(NF-1)}')/"
+  fi
+}
+
+autoload -Uz add-zsh-hook vcs_info
+add-zsh-hook precmd vcs_info
+
+setopt prompt_subst
+
+
+add-zsh-hook precmd _mdl_git_remote
+
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' formats '[%s]|%r:(${_MDL_GIT_REMOTE_PART}%b)'
+zstyle ':vcs_info:git*' actionformats '[%s]|%r:(${_MDL_GIT_REMOTE_PART}%b%F{red}%a%f)'
+zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
+zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
+zstyle ':vcs_info:*:*' check-for-changes true
+
+PROMPT='
+$(print -nP ${vcs_info_msg_0_})
+%(?.%F{blue}⏺.%F{red}⏺)%f %n@%m %1~ %# '
+
+add-zsh-hook preexec _mdl_new_line
+
