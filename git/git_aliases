@@ -1,0 +1,13 @@
+[alias]
+  a = !git add . -u
+  cm = commit -m
+  t = "!t() {  git cm \"[tmp] $*\"; };t"
+  f = !git cm \"[fu] $*\"
+  fix = commit --amend --no-edit
+  force-push = push --force
+  s=status -uno
+  db=! git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+  ob=! git for-each-ref --sort=committerdate refs/remotes --format='%(refname:short)|%(committerdate:relative)' | column -ts'|'
+  p=! git pull --prune; git db
+  l = log --graph --decorate --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  lo = l --oneline

@@ -1,0 +1,12 @@
+# Aliases
+[core]
+	editor = nvim
+[cola]
+	spellcheck = false
+[diff]
+	context = 3
+[merge]
+	tool = kdiff3
+
+[include]
+  path = git_aliases
