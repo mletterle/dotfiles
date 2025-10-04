@@ -1,0 +1,13 @@
+{
+    "cSpell.enabled": false,
+    "editor.minimap.enabled": false,
+    "git.openRepositoryInParentFolders": "always",
+    "workbench.startupEditor": "none",
+    "redhat.telemetry.enabled": false,
+    "[dockercompose]": { "editor.quickSuggestions": { "other": true, "comments": false, "strings": true },
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[github-actions-workflow]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
+}
