@@ -20,15 +20,15 @@ setopt prompt_subst
 add-zsh-hook precmd _mdl_git_remote
 
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats '%F{244}[%F{green}%s%F{244}]%F{240}|%F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240})%f'
-zstyle ':vcs_info:git*' actionformats '%F{244}[%F{green}%s%F{244}]%F{240}|%F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240}|%F{red}%a%F{240})%f'
+zstyle ':vcs_info:git*' formats '%F{208} %F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240})%f'
+zstyle ':vcs_info:git*' actionformats '%F{208} %F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240}|%F{red}%a%F{240})%f'
 zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
 zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
 zstyle ':vcs_info:*:*' check-for-changes true
 
 PROMPT='
 $(print -nP ${vcs_info_msg_0_})
-%(?.%F{blue}⏺.%F{red}⏺)%f %F{222}%m%f(%F{58}%n%f%) %F{12}%1~%f%(!.🦸.🧙🪄) '
+%(?.%F{blue}⏺.%F{red}⏺)%f %F{222}%m%f(%F{58}%n%f%) %K{12} %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
 
 add-zsh-hook preexec _mdl_new_line
 

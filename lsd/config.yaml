@@ -1,0 +1,17 @@
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - name
+  - git
+
+sorting:
+  dir-grouping: first
+
+total-size: true
+
+hyperlink: auto
+
+symlink-arrow: 
