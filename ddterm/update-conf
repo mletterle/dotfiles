@@ -1,0 +1,2 @@
+#!/bin/sh
+dconf dump /com/github/amezin/ddterm/ > ddterm.conf
