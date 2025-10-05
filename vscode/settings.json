@@ -1,15 +1,26 @@
 {
     "cSpell.enabled": false,
+
     "editor.fontLigatures": false,
     "editor.minimap.enabled": false,
+    "editor.fontFamily": "'CommitMono','Symbols Nerd Font Mono'",
+    "editor.fontSize": 16,
+    "debug.console.fontSize": 16,
+
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.tabs.hideCondition": "never",
+    "terminal.integrated.fontFamily":"'CommitMono','Symbols Nerd Font Mono'",
+
     "git.openRepositoryInParentFolders": "always",
     "workbench.startupEditor": "none",
     "redhat.telemetry.enabled": false,
+
     "[dockercompose]": { "editor.quickSuggestions": { "other": true, "comments": false, "strings": true },
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
-    "editor.fontFamily": "'CommitMono Nerd Font Mono','Droid Sans Mono', 'monospace', monospace",
 }
