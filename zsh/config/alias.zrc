@@ -6,7 +6,7 @@ alias cls='clear'
 alias cdp='cdr 1'
 
 alias g='git'
-gcm='g cm'
+alias gcm='g cm'
 
 alias dotfiles="cd $ZSHRC_DIR/../.."
 

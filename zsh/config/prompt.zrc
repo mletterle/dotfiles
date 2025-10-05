@@ -16,6 +16,16 @@ _mdl_vcs_precmd() {
   fi
 }
 
+mdl-toggle-prompt() {
+  if [[ "${_MDL_PROMPT_STATUS}" == "D" ]]; then
+    PROMPT=${_MDL_ALT_PROMPT}
+    _MDL_PROMPT_STATUS="A"
+  else
+    PROMPT=${_MDL_DEFAULT_PROMPT}
+    _MDL_PROMPT_STATUS="D"
+  fi
+}
+
 autoload -Uz add-zsh-hook
 
 add-zsh-hook precmd vcs_info
@@ -25,7 +35,6 @@ add-zsh-hook preexec _mdl_new_line
 
 setopt prompt_subst
 
-
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '%F{208} %F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240})%f'
 zstyle ':vcs_info:git*' actionformats '%F{208} %F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240}|%F{red}%a%F{240})%f'
@@ -33,6 +42,14 @@ zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
 zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
 zstyle ':vcs_info:*:*' check-for-changes true
 
-PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}%f %m %K{179}%F{58}%F{179}%f%K{179} %n %F{179}%K{12}%f %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
+_MDL_FANCY_PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}  %m %K{179}%F{58}%F{179}%f%K{179}%F{255} %n %F{179}%K{12}%F{255} %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
+_MDL_NO_USER_PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}  %m %K{179}%F{58}%F{179}%f%K{179}%F{179}%K{12}%F{255} %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
+
+
+_MDL_DEFAULT_PROMPT="${_MDL_FANCY_PROMPT}"
+_MDL_ALT_PROMPT="${_MDL_NO_USER_PROMPT}"
+
+_MDL_PROMPT_STATUS="D"
+PROMPT="${_MDL_DEFAULT_PROMPT}"
 
 
