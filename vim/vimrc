@@ -1,3 +1,8 @@
+if exists('g:vscode')
+  " If we're in VSCode let VSCode handle everything
+  finish
+endif
+
 set nomodeline
 set nocompatible
 set packpath+=~/.vim
@@ -8,7 +13,7 @@ filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 
 if filereadable("$HOME/.vimrc.local")
-	source $HOME/.vimrc.local
+  source $HOME/.vimrc.local
 endif
 
 if exists("g:gui_oni")
@@ -28,7 +33,7 @@ let g:go_fmt_experimental=1
 
 set termguicolors
 set background=dark
-colorscheme one 
+colorscheme one
 hi Normal guibg=NONE ctermbg=NONE
 
 tnoremap <C-\><C-\> <C-\><C-N>

@@ -1,3 +1,7 @@
 {
-    "files.associations": { "**/editorconfig/EditorConfig": "ini" },
+    "files.associations": {
+      "**/editorconfig/EditorConfig": "editorconfig" ,
+      "*.zrc": "shellscript",
+      "**/zsh/config/dir_colors": "shellscript"
+    },
 }
