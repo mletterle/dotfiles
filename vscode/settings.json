@@ -1,5 +1,8 @@
 {
     "cSpell.enabled": false,
+    "editor.fontFamily": "'monospace','emoji'",
+    "editor.codeLensFontFamily": "'monospace', 'emoji'",
+    "editor.fontLigatures": false,
     "editor.minimap.enabled": false,
     "git.openRepositoryInParentFolders": "always",
     "workbench.startupEditor": "none",
@@ -9,5 +12,5 @@
     },
     "[github-actions-workflow]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
-    }
+    },
 }

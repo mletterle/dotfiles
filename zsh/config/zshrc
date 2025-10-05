@@ -5,6 +5,8 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*:*:cdr:*:*' menu selection
 
+bindkey "^R" history-incremental-search-backward
+
 # Get the real path to this file (since we've symlinked it to ~/.bashrc)
 ZSHRC_DIR=$(dirname $(readlink -f ~/.zshrc))
 

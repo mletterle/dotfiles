@@ -1,6 +1,9 @@
-alias ls='ls --color'
+alias ls='lsd'
 alias grep='grep --color'
 alias mkdir='mkdir -p'
 alias less='less -R'
 alias cls='clear'
 alias cdp='cdr 1'
+alias bat='batcat'
+
+alias zr='exec zsh'
