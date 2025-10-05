@@ -2,22 +2,29 @@ _mdl_new_line() {
   print ""
 }
 
-_mdl_git_remote() {
+_mdl_vcs_precmd() {
   _MDL_GIT_UPSTREAM=$(git rev-parse --abbrev-ref @{u} 2> /dev/null)
   if [ ! $? -eq 0 ]; then
     _MDL_GIT_REMOTE_PART=
   else
     _MDL_GIT_REMOTE_PART="$(echo -n ${_MDL_GIT_UPSTREAM} | awk -F'/' '{print $(NF-1)}')/"
   fi
+
+  _MDL_VCS_INFO=$'\n'
+  if [[ -n "${vcs_info_msg_0_}" ]]; then
+    _MDL_VCS_INFO="$(print -P ${vcs_info_msg_0_})"$'\n'
+  fi
 }
 
-autoload -Uz add-zsh-hook vcs_info
+autoload -Uz add-zsh-hook
+
 add-zsh-hook precmd vcs_info
+add-zsh-hook precmd _mdl_vcs_precmd
+
+add-zsh-hook preexec _mdl_new_line
 
 setopt prompt_subst
 
-
-add-zsh-hook precmd _mdl_git_remote
 
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*' formats '%F{208} %F{244}%r%F{240}:%F{240}(%F{244}${_MDL_GIT_REMOTE_PART}%b%F{240})%f'
@@ -25,10 +32,7 @@ zstyle ':vcs_info:git*' actionformats '%F{208} %F{244}%r%F{240}:%F{240}(%F{24
 zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
 zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
 zstyle ':vcs_info:*:*' check-for-changes true
-#⏺)
-PROMPT='
-$(print -nP ${vcs_info_msg_0_})
-%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}%f %m %K{179}%F{58}%F{179}%f%K{179} %n %F{179}%K{12}%f %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
 
-add-zsh-hook preexec _mdl_new_line
+PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}%f %m %K{179}%F{58}%F{179}%f%K{179} %n %F{179}%K{12}%f %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
+
 
