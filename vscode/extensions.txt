@@ -2,8 +2,6 @@ asvetliakov.vscode-neovim
 docker.docker
 eamodio.gitlens
 editorconfig.editorconfig
-github.copilot
-github.copilot-chat
 github.remotehub
 hashicorp.hcl
 ms-azuretools.vscode-containers
