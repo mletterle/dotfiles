@@ -1,1 +1,1 @@
-eval $(dircolors $ZSHRC_DIR/dir_colors)
+eval $(dircolors $ZSHRC_DIR/config/dir_colors)

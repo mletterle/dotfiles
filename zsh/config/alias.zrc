@@ -8,6 +8,6 @@ alias cdp='cdr 1'
 alias g='git'
 alias gcm='g cm'
 
-alias dotfiles="cd $ZSHRC_DIR/../.."
+alias dotfiles="cd $ZSHRC_DIR/.."
 
 alias zr='exec zsh'

@@ -10,10 +10,17 @@ bindkey "^R" history-incremental-search-backward
 # Get the real path to this file (since we've symlinked it to ~/.bashrc)
 ZSHRC_DIR=$(dirname $(readlink -f ~/.zshrc))
 
-for zrc_file in "$ZSHRC_DIR"/*.zrc; do
+# First load rc files
+for zrc_file in "$ZSHRC_DIR"/**/*.zrc; do
     . $zrc_file
 done
 
+# Then general zsh files
+for zsh_file in "$ZSHRC_DIR"/**/*.zsh; do
+    . $zsh_file
+done
+
+# Any final local customization
 if [ -f ~/.config/zshrc ]; then
 	. ~/.config/zshrc
 fi
