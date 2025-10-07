@@ -16,15 +16,6 @@ _mdl_vcs_precmd() {
   fi
 }
 
-mdl-toggle-prompt() {
-  if [[ "${_MDL_PROMPT_STATUS}" == "D" ]]; then
-    PROMPT=${_MDL_ALT_PROMPT}
-    _MDL_PROMPT_STATUS="A"
-  else
-    PROMPT=${_MDL_DEFAULT_PROMPT}
-    _MDL_PROMPT_STATUS="D"
-  fi
-}
 
 autoload -Uz add-zsh-hook
 
@@ -42,14 +33,43 @@ zstyle ':vcs_info:git*' stagedstr '%F{green}+%f'
 zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
 zstyle ':vcs_info:*:*' check-for-changes true
 
-_MDL_FANCY_PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}  %m %K{179}%F{58}%F{179}%f%K{179}%F{255} %n %F{179}%K{12}%F{255} %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
-_MDL_NO_USER_PROMPT='${_MDL_VCS_INFO}%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) %K{58}%F{249}  %m %K{179}%F{58}%F{179}%f%K{179}%F{179}%K{12}%F{255} %1~ %k%F{12}%f%(!.🦸.🧙🪄) '
 
+_MDL_PROMPT_VCS_INFO='${MDL_VCS_INFO}'
+_MDL_PROMPT_EXIT_IND='%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) '
+_MDL_PROMPT_MACHINE='%K{58}%F{249}  %m %K{179}%F{58} '
+_MDL_PROMPT_USER='%F{179}%f%K{179}%F{255} %n %F{179}%K{12} '
+_MDL_PROMPT_DIR='%F{255} %1~ %k%F{12}%f '
+_MDL_PROMPT_INPUT='%(!.🦸.🧙🪄)'
 
-_MDL_DEFAULT_PROMPT="${_MDL_FANCY_PROMPT}"
-_MDL_ALT_PROMPT="${_MDL_NO_USER_PROMPT}"
+typeset -A _mdl_prompt_parts
 
-_MDL_PROMPT_STATUS="D"
-PROMPT="${_MDL_DEFAULT_PROMPT}"
+_mdl_prompt_parts=(
+  [V]="${_MDL_PROMPT_VCS_INFO}"
+  [E]="${_MDL_PROMPT_EXIT_IND}"
+  [M]="${_MDL_PROMPT_MACHINE}"
+  [U]="${_MDL_PROMPT_USER}"
+  [D]="${_MDL_PROMPT_DIR}"
+  [I]="${_MDL_PROMPT_INPUT}"
+)
 
+_MDL_PROMPT="VEMUDI"
 
+mdl-prompt-toggle-user() {
+  if [[ "${_MDL_PROMPT}" == *"U"* ]]; then
+   echo "Disabling"
+   _MDL_PROMPT="${_MDL_PROMPT:s/U/u/}"
+  else
+    echo "Enabling"
+   _MDL_PROMPT="${_MDL_PROMPT:s/u/U/}"
+  fi
+}
+
+_mdl_prompt() {
+  PROMPT=
+  for flag in "${(s::)_MDL_PROMPT//[a-z]/}"; do
+    PROMPT+=$_mdl_prompt_parts[$flag]""
+  done
+
+}
+
+add-zsh-hook precmd _mdl_prompt
