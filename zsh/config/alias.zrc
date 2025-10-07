@@ -11,3 +11,7 @@ alias gcm='g cm'
 alias dotfiles="cd $ZSHRC_DIR/.."
 
 alias zr='exec zsh'
+
+alias v='nvim'
+alias vim='vi'
+alias vi='v'

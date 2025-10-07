@@ -16,9 +16,9 @@ for zrc_file in "$ZSHRC_DIR"/**/*.zrc; do
 done
 
 # Then general zsh files
-for zsh_file in "$ZSHRC_DIR"/**/*.zsh; do
-    . $zsh_file
-done
+# for zsh_file in "$ZSHRC_DIR"/**/*.zsh; do
+#     . $zsh_file
+# done
 
 # Any final local customization
 if [ -f ~/.config/zshrc ]; then

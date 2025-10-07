@@ -1,2 +1,0 @@
-mdl-python-venv() {
-}
