@@ -45,5 +45,5 @@ tnoremap <C-w>l <C-\><C-n><C-w>l
 
 noremap cb i✔<ESC>
 
-source ./init.lua
+source ~/.config/nvim/init_lua
 

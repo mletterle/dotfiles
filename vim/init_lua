@@ -1,3 +1,4 @@
+lua << INIT_LUA
 
 local function on_lsp_attach(client, bufnr)
   vim.lsp.completion.enable(true, client.id, bufnr,
@@ -13,3 +14,4 @@ vim.opt.completeopt = { "menuone", "noselect", "popup" }
 vim.lsp.config('pyrefly', {on_attach = on_lsp_attach })
 vim.lsp.enable('pyrefly')
 
+INIT_LUA
