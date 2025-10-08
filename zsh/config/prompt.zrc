@@ -54,14 +54,16 @@ _mdl_prompt_parts=(
 
 _MDL_PROMPT="VEMUDI"
 
-mdl-prompt-toggle-user() {
-  if [[ "${_MDL_PROMPT}" == *"U"* ]]; then
-   echo "Disabling"
-   _MDL_PROMPT="${_MDL_PROMPT:s/U/u/}"
+mdl-prompt-toggle-part() {
+  if [[ "${_MDL_PROMPT}" == *"${1:u}"* ]]; then
+   _MDL_PROMPT="$(echo $_MDL_PROMPT | tr ${1:u} ${1:l})"
   else
-    echo "Enabling"
-   _MDL_PROMPT="${_MDL_PROMPT:s/u/U/}"
+   _MDL_PROMPT="$(echo $_MDL_PROMPT | tr ${1:l} ${1:u})"
   fi
+}
+
+mdl-prompt-toggle-user() {
+  mdl-prompt-toggle-part "U"
 }
 
 _mdl_prompt() {
