@@ -1,0 +1,15 @@
+
+local function on_lsp_attach(client, bufnr)
+  vim.lsp.completion.enable(true, client.id, bufnr,
+  {
+    autotrigger = true,
+    convert = function(item) return { abbr = item.label:gsub("%b()", "") }
+    end,
+  })
+  vim.keymap.set("i", "<C-space>", vim.lsp.completion.get, { desc = "trigger autocompletion" })
+end
+
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.lsp.config('pyrefly', {on_attach = on_lsp_attach })
+vim.lsp.enable('pyrefly')
+
