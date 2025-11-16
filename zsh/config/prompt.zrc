@@ -34,7 +34,7 @@ zstyle ':vcs_info:git*' unstagedstr '%F{red}*%f'
 zstyle ':vcs_info:*:*' check-for-changes true
 
 
-_MDL_PROMPT_VCS_INFO='${MDL_VCS_INFO}'
+_MDL_PROMPT_VCS_INFO='${_MDL_VCS_INFO}'
 _MDL_PROMPT_EXIT_IND='%(?.%K{blue} %K{249}%F{blue}.%K{red} %K{249}%F{red}) '
 _MDL_PROMPT_MACHINE='%K{58}%F{249}  %m %K{179}%F{58} '
 _MDL_PROMPT_USER='%F{179}%f%K{179}%F{255} %n %F{179}%K{12} '
